@@ -59,7 +59,7 @@ void	draw_column(int x, t_ray *ray, t_mlx *mlx)
 
 /*
 **	ray_angle is the angle between the x axis and the ray
-**	camera_angle is the angle between the ray and the line perpendicular to the wall that starts from the player
+**	camera_angle is used to treat the fisheye effect
 **	ray->wall_len is the height of the projected wall
 **	see: https://permadi.com/1996/05/ray-casting-tutorial-8/
 **	and https://permadi.com/1996/05/ray-casting-tutorial-9/
