@@ -29,10 +29,10 @@ int	draw_wall(t_mlx *mlx, t_ray *ray, int y)
 	col = (int)((ray->hit_x + ray->hit_y) * mlx->txt[dirc].w)
 		% mlx->txt[dirc].w;
 	row = 0.00;
-	x_step = (mlx->txt[dirc].h - 1) / (double)ray->wall_len;
+	x_step = mlx->txt[dirc].h / (double)ray->wall_len;
 	while (ray->wall_height < wall_end)
 	{
-		if (ray->wall_height >= 0 && ray->wall_height <= WIN_H - 1)
+		if (ray->wall_height >= 0 && ray->wall_height <= WIN_H)
 			pixel_put(mlx, y, ray->wall_height,
 				get_txt_color(&mlx->txt[dirc], col, (int)row));
 		ray->wall_height++;
