@@ -6,11 +6,26 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:18:06 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/29 14:10:43 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:40:06 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+char	*update_red(char *str)
+{
+	char *res;
+	int		i;
+
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t')
+		i++;
+	if (str[i] == 'F' || str[i] == 'C')
+		i++;
+	res = ft_strdup(str + i);
+	free (str);
+	return (res);
+}
 
 int	check_chars_used(char **str)
 {

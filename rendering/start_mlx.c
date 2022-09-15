@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:34:57 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/13 16:48:19 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:46:32 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	draw_wall(t_mlx *mlx, t_ray *ray, int y)
 	x_step = mlx->txt[dirc].h / (double)ray->wall_len;
 	while (ray->wall_height < wall_end)
 	{
-		if (ray->wall_height >= 0 && ray->wall_height <= WIN_H)
+		if (ray->wall_height >= 0 && ray->wall_height < WIN_H)
 			pixel_put(mlx, y, ray->wall_height,
 				get_txt_color(&mlx->txt[dirc], col, (int)row));
 		ray->wall_height++;
@@ -96,6 +96,7 @@ int	cast_ray(t_mlx *mlx, t_player *p, t_ray *ray)
 
 int	create_image(t_mlx *mlx)
 {
+	mlx_clear_window(mlx->init_ptr, mlx->win);
 	mlx->img = mlx_new_image(mlx->init_ptr, WIN_W, WIN_H);
 	if (!mlx->img)
 		return (1);

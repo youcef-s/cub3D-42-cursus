@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 09:29:19 by yachehbo          #+#    #+#             */
-/*   Updated: 2022/07/13 16:57:24 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:44:00 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 void	init_player_dir(t_mlx *mlx, int x, int y)
 {
 	if (mlx->file->scene[x][y] == 'N')
-		mlx->player->player_dir = M_PI_2;
+		mlx->player->player_dir = 3 * M_PI_2;
 	else if (mlx->file->scene[x][y] == 'S')
-		mlx->player->player_dir = M_PI_2 * 3;
+		mlx->player->player_dir = M_PI_2;
 	else if (mlx->file->scene[x][y] == 'W')
-		mlx->player->player_dir = 0;
-	else if (mlx->file->scene[x][y] == 'E')
 		mlx->player->player_dir = M_PI;
+	else if (mlx->file->scene[x][y] == 'E')
+		mlx->player->player_dir = 0;
 }
 
 /*

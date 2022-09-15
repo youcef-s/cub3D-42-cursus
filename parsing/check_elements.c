@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 14:13:07 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/06/29 14:10:23 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:42:01 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,31 @@ int	continue_checking_colors(char **s)
 	return (0);
 }
 
+int	check_commas(char *str)
+{
+	int		i;
+	char	*trim;
+
+	i = 0;
+	trim = ft_strtrim(str, " \t");
+	while (trim[i])
+	{
+		if (trim[i + 1] && trim[i] == ',' && trim[i + 1] == ',')
+			return (printf("Error\nWrong RGB format\n"), 1);
+		i++;
+	}
+	free (trim);
+	return (0);
+}
+
 int	check_colors(char *str, t_file *file, char c)
 {
 	char	**s;
 	int		len;
 	int		color;
 
+	if (check_commas(str))
+		return (1);
 	s = ft_split(str, ',');
 	len = 0;
 	if (!s)
@@ -66,6 +85,7 @@ int	check_colors(char *str, t_file *file, char c)
 		len++;
 	if (len != 3)
 		return (printf("Error\nWrong RGB format\n"), 1);
+	s[0] = update_red(s[0]);
 	if (continue_checking_colors(s))
 		return (1);
 	len = -1;

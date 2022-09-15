@@ -6,7 +6,7 @@
 /*   By: ylabtaim <ylabtaim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 17:04:17 by ylabtaim          #+#    #+#             */
-/*   Updated: 2022/07/13 16:56:21 by ylabtaim         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:40:23 by ylabtaim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int		fill_ceilling(t_file *file, char c, int color);
 int		fill_textures(t_file *file, char **str);
 int		check_elements(t_file *file, char **str);
 char	**ft_split2(char *str, char *charset);
+char	*update_red(char *str);
 /*****************start_mlx******************/
 int		start_mlx(t_mlx *mlx, t_file *file);
 int		create_image(t_mlx *mlx);
