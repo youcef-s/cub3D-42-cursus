@@ -18,7 +18,7 @@ LIBFT = libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT) $(HDR)
+$(NAME): $(OBJ) $(LIBFT)
 	@gcc -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "\033[0;32mIt's time to play a game\033[0;37m"
 
